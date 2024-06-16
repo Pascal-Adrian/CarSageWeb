@@ -1,0 +1,113 @@
+.car-card {
+  padding: 32px;
+  border-radius: 32px;
+  background-color: $gray-card;
+  color: $black;
+
+  &-top-wrapper {
+    margin-top: 16px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    &-grade {
+      width: min-content;
+      display: flex;
+      align-items: center;
+      padding: 0 5px;
+      color: $white;
+      height: 25px;
+      border-radius: 10px;
+      background-color: $blue;
+    }
+
+    &-review {
+      color: $black;
+
+      &:hover {
+        color: $black20;
+        cursor: pointer;
+      }
+    }
+  }
+
+  &-image {
+    margin-top: 32px;
+  }
+
+  &-image-buttons {
+    margin-top: 32px;
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+
+    &-number {
+      width: min-content;
+      display: flex;
+      align-items: center;
+      height: 25px;
+      padding: 0 5px;
+      border-radius: 10px;
+
+      background-color: $black20;
+    }
+
+    &-button {
+      padding: 0;
+      height: 25px;
+      width: 25px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: $black20;
+
+      svg {
+        stroke: $black;
+      }
+
+      &:last-child {
+        svg {
+          transform: rotate(180deg);
+        }
+      }
+    }
+  }
+
+  &-bottom-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: $white;
+    padding: 32px;
+    border-radius: 32px;
+    margin-top: 32px;
+
+    &-inner {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+
+      &-title {
+        font-weight: 800;
+      }
+    }
+
+    &-button {
+      padding: 0;
+      height: 42px;
+      width: 42px;
+      min-width: 42px;
+
+      svg {
+        width: 24px;
+        height: 24px;
+        stroke: $white;
+      }
+
+      &:hover svg {
+        stroke: $blue;
+      }
+    }
+  }
+}

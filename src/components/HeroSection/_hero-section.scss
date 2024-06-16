@@ -1,0 +1,81 @@
+.hero-section {
+  width: 100%;
+  height: 100vh;
+  position: relative;
+
+  &-video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  &-container {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    position: absolute;
+    top: 0;
+    left: 0;
+    color: white;
+
+    &-logo {
+      grid-column: 1 / -1;
+      width: auto;
+      font-size: 48px;
+      text-align: center;
+      padding: 24px 0;
+    }
+
+    &-content {
+      grid-column: 1 / -1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 72px;
+      text-align: center;
+      width: fit-content;
+      padding-bottom: 72px;
+
+      &-wrapper {
+        display: flex;
+        gap: 32px;
+
+        &-input-wrapper {
+          display: flex;
+          background-color: $white;
+          align-items: center;
+          padding: 10px 10px 10px 24px;
+          height: 56px;
+          border-radius: 28px;
+
+          &-button {
+            background-color: $gray;
+            min-width: 40px;
+            width: 40px;
+            height: 40px;
+            border-radius: 20px;
+            padding: 0;
+
+            svg {
+              width: 24px;
+              height: 24px;
+              fill: $blue;
+            }
+          }
+
+          &-input {
+            height: 100%;
+
+            &:focus {
+              outline: none;
+            }
+          }
+        }
+      }
+    }
+  }
+}

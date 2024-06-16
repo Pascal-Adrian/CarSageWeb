@@ -1,0 +1,35 @@
+.footer {
+  background-color: $gray-card;
+  border-radius: 100px 100px 0 0;
+  padding: 72px 0;
+
+  &-logo,
+  &-discover,
+  &-better {
+    grid-column: span 4;
+  }
+
+  &-title {
+    margin-bottom: 20px;
+    color: $blue;
+  }
+
+  &-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    &-item {
+      margin-bottom: 16px;
+      a {
+        text-decoration: none;
+        color: rgba($black, 0.6);
+
+        &:hover {
+          color: $black;
+        }
+      }
+    }
+  }
+}

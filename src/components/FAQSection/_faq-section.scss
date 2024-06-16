@@ -1,0 +1,16 @@
+.faq-section {
+  background-color: $gray-card;
+  max-width: $grid-max-width;
+  margin: 0 auto;
+  border-radius: 32px;
+  padding: 72px 32px 40px;
+  display: flex;
+  justify-content: space-between;
+  margin: 0 auto 72px;
+
+  &-left {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+  }
+}

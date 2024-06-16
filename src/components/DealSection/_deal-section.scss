@@ -1,0 +1,60 @@
+.deal-section {
+  background-color: $bg-gray;
+  color: $white;
+
+  &-title,
+  &-subtitle {
+    max-width: $grid-max-width;
+    margin: 0 auto;
+  }
+
+  &-subtitle {
+    margin-top: 16px;
+  }
+
+  &-wrapper {
+    padding: 72px 0;
+  }
+
+  &-card {
+    background-color: $gray-card;
+    padding: 32px 0 32px 32px;
+    width: 100%;
+    grid-column: span 4;
+    color: $black;
+    border-radius: 32px;
+
+    &-image {
+      height: 450px;
+      object-fit: cover;
+      object-position: left;
+      padding-left: 32px;
+    }
+
+    &-button {
+      justify-content: space-between;
+      background-color: transparent;
+      width: 100%;
+      padding: 0;
+      border-radius: 0;
+      padding-right: 40px;
+      transition: padding-right 0.3s ease-in-out;
+      margin-top: 48px;
+
+      &-text {
+        text-align: left;
+      }
+
+      svg {
+        width: 40px;
+        height: 40px;
+        stroke: $black;
+      }
+
+      &:hover {
+        cursor: pointer;
+        padding-right: 32px;
+      }
+    }
+  }
+}

@@ -1,0 +1,19 @@
+.filter-section {
+  background-color: $bg-gray;
+  color: $white;
+
+  &-top {
+    max-width: $grid-max-width;
+    margin: 0 auto;
+    padding: 72px 0;
+    display: flex;
+  }
+
+  &-cars {
+    padding: 72px 0;
+
+    &-card {
+      grid-column: span 4;
+    }
+  }
+}
