@@ -1,6 +1,14 @@
-function Footer() {
+interface FooterProps {
+  className?: string;
+  style?: React.CSSProperties;
+}
+
+function Footer({ className, style }: FooterProps) {
   return (
-    <footer className="footer cols-12">
+    <footer
+      className={"footer cols-12" + (className ? " " + className : "")}
+      style={style}
+    >
       <h3 className="footer-logo">CarSage</h3>
       <div className="footer-discover">
         <h5 className="footer-title">Discover</h5>

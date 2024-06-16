@@ -5,10 +5,9 @@ import FilterSection from "./components/FilterSection/FilterSection";
 import Footer from "./components/Footer/Footer";
 import HeroSection from "./components/HeroSection/HeroSection";
 import "./styles/styles.scss";
-
 function App() {
   return (
-    <div>
+    <div id="app">
       <HeroSection />
       <FilterSection />
       <DealSection />

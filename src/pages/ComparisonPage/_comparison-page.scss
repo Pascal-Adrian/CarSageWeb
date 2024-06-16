@@ -1,0 +1,37 @@
+.comparison-page {
+  background-color: $gray-card;
+
+  &-car {
+    grid-column: span 6;
+
+    &-info {
+      padding: 0 120px;
+    }
+  }
+
+  &-button {
+    border: 1px solid $black50;
+    color: $black50;
+    background-color: transparent;
+
+    &:hover {
+      cursor: pointer;
+      background-color: $black50;
+      color: $white;
+    }
+
+    &:active {
+      grid-column: 11 / 12;
+      background-color: transparent;
+      color: $black50;
+    }
+  }
+
+  &-button-wrapper {
+    grid-column: span 12;
+    display: flex;
+    justify-content: end;
+    width: 100%;
+    padding: 72px 120px;
+  }
+}

@@ -1,6 +1,32 @@
+import { useState } from "react";
 import Find from "../../assets/icons/find-icon.svg?react";
+import { useDispatch } from "react-redux";
+import { setRecommendedCars } from "../../stores/slice";
+import { getCarsByPrompt } from "../../axios/getCarsByPrompt";
+import { useNavigate } from "react-router-dom";
 
 function HeroSection() {
+  const [promt, setPromt] = useState<string>("Search made powerfull");
+
+  const dispatch = useDispatch();
+
+  const navigate = useNavigate();
+
+  const handleCompareClick = () => {
+    navigate("/compare");
+  };
+
+  const handlePromtChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setPromt(e.target.value);
+  };
+
+  const handleFindClick = () => {
+    const cars = getCarsByPrompt(promt);
+    cars.then((res) => {
+      dispatch(setRecommendedCars(res));
+    });
+  };
+
   return (
     <section className="hero-section">
       <video
@@ -24,13 +50,21 @@ function HeroSection() {
               <input
                 className="hero-section-container-content-wrapper-input-wrapper-input"
                 type="text"
-                placeholder="Search made powerfull"
+                placeholder={promt}
+                value={promt}
+                onChange={handlePromtChange}
               />
-              <button className="hero-section-container-content-wrapper-input-wrapper-button">
+              <button
+                className="hero-section-container-content-wrapper-input-wrapper-button"
+                onClick={handleFindClick}
+              >
                 <Find />
               </button>
             </div>
-            <button className="hero-section-container-content-wrapper-button primary-button">
+            <button
+              className="hero-section-container-content-wrapper-button primary-button"
+              onClick={handleCompareClick}
+            >
               Compare
             </button>
           </div>

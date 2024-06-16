@@ -1,7 +1,11 @@
 import { useEffect, useState } from "react";
 import Filters from "../Filters/Filters";
-import { Car, carTemplate } from "../../do-not-open/temp";
+import { Car } from "../../do-not-open/temp";
 import CarCard from "../CarCard/CarCard";
+import { useSelector } from "react-redux";
+import { getCarsByFilters } from "../../axios/getCarsByFilters";
+import { State } from "../../stores/store";
+// import Filter from "../Filter/Filter";
 
 function FilterSection() {
   const [makers, setMakers] = useState<string[]>([]);
@@ -9,6 +13,11 @@ function FilterSection() {
   const [selectedMakers, setSelectedMakers] = useState<string[]>([]);
   const [selectedFuelTypes, setSelectedFuelTypes] = useState<string[]>([]);
   const [cars, setCars] = useState<Car[]>([]);
+  const [filterOpen, setFilterOpen] = useState<boolean>(false);
+
+  const recommendedCars = useSelector(
+    (state: State) => state.recommendedCars.recommendedCars
+  );
 
   const handleMakerSelect = (maker: string) => {
     setSelectedMakers((prev) =>
@@ -32,17 +41,26 @@ function FilterSection() {
   }, []);
 
   useEffect(() => {
-    setCars(Array.from({ length: 6 }, () => carTemplate));
-  }, []);
+    if (recommendedCars.length > 0) {
+      setCars(recommendedCars.slice(0, 9));
+    } else {
+      const cars = getCarsByFilters({ limit: 9 });
+      cars.then((data) => setCars(data));
+    }
+  }, [recommendedCars]);
 
   return (
     <section className="filter-section">
       <div className="filter-section-top">
         <h3 className="filter-section-top-title">Scale without limits</h3>
-        <button className="filter-section-top-button primary-button">
+        <button
+          className="filter-section-top-button primary-button"
+          onClick={() => setFilterOpen(!filterOpen)}
+        >
           Filters
         </button>
       </div>
+      {/* {filterOpen && <Filter />} */}
       <Filters
         className="filter-section-filters"
         makers={makers}

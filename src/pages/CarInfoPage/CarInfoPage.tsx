@@ -1,0 +1,51 @@
+import { useEffect, useState } from "react";
+import CarInfoComponent from "../../components/CarInfoComponent/CarInfoComponent";
+import { useParams } from "react-router-dom";
+import { getCarByIdRequest } from "../../axios/getCarByIdRequest";
+import { Car } from "../../do-not-open/temp";
+import Footer from "../../components/Footer/Footer";
+
+function CarInfoPage() {
+  const [car, setCar] = useState({} as Car);
+
+  const id = useParams().carId;
+
+  useEffect(() => {
+    if (!id) {
+      getCarByIdRequest("1").then((data) => {
+        setCar(data);
+      });
+      return;
+    }
+    getCarByIdRequest(id).then((data) => {
+      setCar(data);
+    });
+  }, [id]);
+
+  return (
+    <>
+      <div className="car-info-page cols-12">
+        <h2 className="car-info-page-logo">CarSage</h2>
+        <img
+          src={car.image_link}
+          alt={car.make + " " + car.model}
+          className="car-info-page-image"
+        />
+        <div className="car-info-page-info">
+          <CarInfoComponent car={car} />
+          <div className="car-info-page-info-button-wrapper">
+            <button className="car-info-page-info-button-underline">
+              See more
+            </button>
+            <button className="car-info-page-info-button-primary primary-button">
+              Compare
+            </button>
+          </div>
+        </div>
+      </div>
+      <Footer className="car-info-page-footer" />
+    </>
+  );
+}
+
+export default CarInfoPage;
