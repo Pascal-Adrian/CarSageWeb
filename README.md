@@ -11,9 +11,11 @@ Develop a tool that helps people of different ages and interests gather informat
 
 ## Tech Stack
 
-Front - scss, typescript, react, swift
-Back - python, postgresql
-Design - figma
+Front - scss, typescript, react, swift,
+
+Back - python, postgresql,
+
+Design - figma.
 
 # Results
 
