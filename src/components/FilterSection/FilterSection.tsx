@@ -72,7 +72,7 @@ function FilterSection() {
           }}
         >
           <img
-            src="./src/assets/images/Filters.png"
+            src="/images/Filters.png"
             alt="Filters"
             style={{ maxWidth: 1410 }}
           />
