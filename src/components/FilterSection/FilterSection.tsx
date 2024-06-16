@@ -19,6 +19,8 @@ function FilterSection() {
     (state: State) => state.recommendedCars.recommendedCars
   );
 
+  const recom = useSelector((state: State) => state.recommendedCars.compare);
+
   const handleMakerSelect = (maker: string) => {
     setSelectedMakers((prev) =>
       prev.includes(maker) ? prev.filter((m) => m !== maker) : [...prev, maker]
@@ -60,7 +62,22 @@ function FilterSection() {
           Filters
         </button>
       </div>
-      {/* {filterOpen && <Filter />} */}
+      {filterOpen && (
+        <div
+          style={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            paddingBottom: 72,
+          }}
+        >
+          <img
+            src="./src/assets/images/Filters.png"
+            alt="Filters"
+            style={{ maxWidth: 1410 }}
+          />
+        </div>
+      )}
       <Filters
         className="filter-section-filters"
         makers={makers}
@@ -72,7 +89,12 @@ function FilterSection() {
       />
       <div className="filter-section-cars cols-12">
         {cars.map((car, index) => (
-          <CarCard key={index} car={car} className="filter-section-cars-card" />
+          <CarCard
+            key={index}
+            car={car}
+            className="filter-section-cars-card"
+            inComparison={recom.includes(car.id)}
+          />
         ))}
       </div>
     </section>

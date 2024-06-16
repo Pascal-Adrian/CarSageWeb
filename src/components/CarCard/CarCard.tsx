@@ -2,14 +2,25 @@ import { Car } from "../../do-not-open/temp";
 import Arrow from "../../assets/icons/arrow.svg?react";
 import ArrowBig from "../../assets/icons/arrow-big.svg?react";
 import { useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
+import { State } from "../../stores/store";
 
 interface CarCardProps {
   car: Car;
   className?: string;
+  inComparison?: boolean;
 }
 
-function CarCard({ car, className }: CarCardProps) {
+function CarCard({ car, className, inComparison }: CarCardProps) {
   const navigate = useNavigate();
+
+  const compare = useSelector((state: State) => state.recommendedCars.compare);
+
+  const handleCompareClick = () => {
+    if (compare.length == 2) {
+      navigate("/compare/" + compare[0] + "/" + compare[1]);
+    }
+  };
 
   const handleGoButton = () => {
     console.log("Go button clicked", car.id);
@@ -28,6 +39,14 @@ function CarCard({ car, className }: CarCardProps) {
         <a href="" className="car-card-top-wrapper-review">
           {car.make} {car.model} {car.bodytype} Review
         </a>
+        {inComparison && (
+          <button
+            className="car-card-top-wrapper-in-comparison"
+            onClick={handleCompareClick}
+          >
+            In coparison
+          </button>
+        )}
       </div>
       <img
         src={car.image_link}

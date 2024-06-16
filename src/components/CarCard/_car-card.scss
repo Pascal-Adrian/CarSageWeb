@@ -10,6 +10,17 @@
     align-items: center;
     gap: 12px;
 
+    &-in-comparison {
+      background-color: $blue;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: $white;
+      padding: 0 5px;
+      height: 25px;
+      border-radius: 10px;
+    }
+
     &-grade {
       width: min-content;
       display: flex;

@@ -2,17 +2,30 @@ import { Car } from "../../do-not-open/temp";
 
 interface CarInfoComponentProps {
   car: Car;
+  recommended?: boolean;
   className?: string;
   style?: React.CSSProperties;
 }
 
-function CarInfoComponent({ car, className, style }: CarInfoComponentProps) {
+function CarInfoComponent({
+  car,
+  className,
+  style,
+  recommended,
+}: CarInfoComponentProps) {
   return (
     <div
       className={"car-info" + (className ? " " + className : "")}
       style={style}
     >
-      <h3 className="car-info-title">{car.model}</h3>
+      {recommended ? (
+        <p className="car-info-recommend">Recommended</p>
+      ) : (
+        <p className="car-info-placeholder"></p>
+      )}
+      <h2 className="car-info-title">
+        {car.model} {recommended}
+      </h2>
       <div className="car-info-top-section">
         <h5 className="car-info-top-section-element">
           {car.traction} <span>{car.gearbox}</span>

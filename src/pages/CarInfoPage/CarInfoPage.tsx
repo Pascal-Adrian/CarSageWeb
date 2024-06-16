@@ -1,14 +1,23 @@
 import { useEffect, useState } from "react";
 import CarInfoComponent from "../../components/CarInfoComponent/CarInfoComponent";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { getCarByIdRequest } from "../../axios/getCarByIdRequest";
 import { Car } from "../../do-not-open/temp";
 import Footer from "../../components/Footer/Footer";
+import { useDispatch, useSelector } from "react-redux";
+import { setCompare } from "../../stores/slice";
+import { State } from "../../stores/store";
 
 function CarInfoPage() {
   const [car, setCar] = useState({} as Car);
 
   const id = useParams().carId;
+
+  const dispatch = useDispatch();
+
+  const navigate = useNavigate();
+
+  const recom = useSelector((state: State) => state.recommendedCars.compare);
 
   useEffect(() => {
     if (!id) {
@@ -21,6 +30,10 @@ function CarInfoPage() {
       setCar(data);
     });
   }, [id]);
+
+  const handleCompareClick = () => {
+    dispatch(setCompare(car.id));
+  };
 
   return (
     <>
@@ -37,7 +50,10 @@ function CarInfoPage() {
             <button className="car-info-page-info-button-underline">
               See more
             </button>
-            <button className="car-info-page-info-button-primary primary-button">
+            <button
+              className="car-info-page-info-button-primary primary-button"
+              onClick={handleCompareClick}
+            >
               Compare
             </button>
           </div>
