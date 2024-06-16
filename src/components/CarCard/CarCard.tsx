@@ -44,7 +44,7 @@ function CarCard({ car, className, inComparison }: CarCardProps) {
             className="car-card-top-wrapper-in-comparison"
             onClick={handleCompareClick}
           >
-            In comparison
+            Comparing
           </button>
         )}
       </div>
