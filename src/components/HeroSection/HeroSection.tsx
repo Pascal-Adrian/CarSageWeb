@@ -37,7 +37,7 @@ function HeroSection() {
         muted
         loop
       >
-        <source src="src/assets/video/hero-video.mp4" type="video/mp4" />
+        <source src="/video/hero-video.mp4" type="video/mp4" />
       </video>
       <div className="hero-section-container cols-12">
         <h2 className="hero-section-container-logo">CarSage</h2>

@@ -66,15 +66,15 @@ export const carTemplate = {
 export const deals = [
     {
         name: 'BMW 3 Series',
-        imageLink: './src/assets/images/bmw-3.png',
+        imageLink: '/images/bmw-3.png',
     },
     {
         name: 'Toyota Land Cruiser Prado',
-        imageLink: './src/assets/images/toyota-prado.png',
+        imageLink: '/images/toyota-prado.png',
     },
     {
         name: 'Mazda 3',
-        imageLink: './src/assets/images/mazda-3.png',
+        imageLink: '/images/mazda-3.png',
     }
 ]
 
